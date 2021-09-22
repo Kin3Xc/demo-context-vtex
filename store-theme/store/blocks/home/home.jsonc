@@ -1,0 +1,204 @@
+{
+  "store.home": {
+    "blocks": [
+      // "sugo-component",
+      "component-1",
+      "component-2",
+      "list-context.image-list#demo",
+      /* You can make references to blocks defined in other files.
+       * For example, `flex-layout.row#deals` is defined in the `deals.json` file. */
+      "__fold__.experimentalLazyAssets",
+      "flex-layout.row#deals",
+      "rich-text#shelf-title",
+      "flex-layout.row#shelf",
+      "info-card#home",
+      "rich-text#question",
+      "rich-text#link"
+      // "component-2"
+
+      // "category-menu"
+      // "flex-layout.row#newsletter"
+      // "flex-layout.row#form"
+    ]
+  },
+
+  "flex-layout.row#newsletter": {
+    "children": ["newsletter-form"]
+  },
+
+// NEWSLETTER
+  "newsletter-form": {
+    "children": [
+      "newsletter-input-name",
+      "newsletter-input-email",
+      "newsletter-submit"
+    ]
+  },
+
+  // STORE FORM
+
+  "flex-layout.row#form": {
+    "children": [
+      "flex-layout.col#form"
+    ]
+  },
+  "flex-layout.col#form": {
+    "children": [
+      "form"
+    ]
+  },
+  "form": {
+    "props": {
+      "entity": "Person",
+      "schema": "person_schema"
+    },
+    "children": [
+      "rich-text#formTitle",
+      "form-input.text#firstName",
+      "form-input.text#lastName",
+      "form-input.text#emailForm",
+      "form-submit"
+    ],
+    "blocks": ["form-success"]
+  },
+  "rich-text#formTitle":{
+    "props": {
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER",
+      "text": "Store Form - Formulario Person"
+    }
+  },
+  "form-success": {
+    "children": [
+      "rich-text#successSubmit"
+    ]
+  },
+  "rich-text#successSubmit": {
+    "props": {
+      "text": "Datos enviados correctamente!",
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER"
+    }
+  },
+
+  "form-input.text#firstName": {
+    "props": {
+      "pointer": "#/properties/firstName",
+      "label": "First Name"
+    }
+  },
+  "form-input.text#lastName": {
+    "props": {
+      "pointer": "#/properties/lastName",
+      "label": "Last Name"
+    }
+  },
+  "form-input.text#emailForm": {
+    "props": {
+      "pointer": "#/properties/email",
+      "label": "Email"
+    }
+  },
+
+  "form-submit": {
+    "props": {
+      "label": "Enviar datos"
+    }
+  },
+
+  // CATEGORY MENU
+  "category-menu": {
+    "props": {
+      "showAllDepartments": true,
+      "showSubcategories": true,
+      "menuDisposition": "center",
+      "sortSubcategories": "name"
+    }
+  },
+
+  "list-context.image-list#demo": {
+    "children": ["slider-layout#demo-images"],
+    "props": {
+      "height": 720,
+      "images": [
+        {
+          "image": "https://storecomponents.vteximg.com.br/arquivos/banner-principal.png",
+          "mobileImage": "https://storecomponents.vteximg.com.br/arquivos/banner-principal-mobile.jpg"
+        },
+        {
+          "image": "https://storecomponents.vteximg.com.br/arquivos/banner.jpg",
+          "mobileImage": "https://storecomponents.vteximg.com.br/arquivos/banner-principal-mobile.jpg"
+        }
+      ]
+    }
+  },
+  "slider-layout#demo-images": {
+    "props": {
+      "itemsPerPage": {
+        "desktop": 1,
+        "tablet": 1,
+        "phone": 1
+      },
+      "infinite": true,
+      "showNavigationArrows": "desktopOnly",
+      "blockClass": "carousel"
+    }
+  },
+
+  "rich-text#shelf-title": {
+    "props": {
+      "text": "## Summer",
+      "blockClass": "shelfTitle"
+    }
+  },
+  "flex-layout.row#shelf": {
+    "children": ["list-context.product-list#demo1"]
+  },
+  "list-context.product-list#demo1": {
+    "blocks": ["product-summary.shelf"],
+    "children": ["slider-layout#demo-products"],
+    "props": {
+      "orderBy": "OrderByTopSaleDESC"
+    }
+  },
+  "slider-layout#demo-products": {
+    "props": {
+      "itemsPerPage": {
+        "desktop": 5,
+        "tablet": 3,
+        "phone": 1
+      },
+      "infinite": true,
+      "fullWidth": false,
+      "blockClass": "shelf"
+    }
+  },
+
+  "info-card#home": {
+    "props": {
+      "id": "info-card-home",
+      "isFullModeStyle": false,
+      "textPosition": "left",
+      "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/banner-infocard2.png",
+      "headline": "Clearance Sale",
+      "callToActionText": "DISCOVER",
+      "callToActionUrl": "/sale/d",
+      "blockClass": "info-card-home",
+      "textAlignment": "center"
+    }
+  },
+
+  "rich-text#question": {
+    "props": {
+      "text": "**This is an example store built using the VTEX platform.\nWant to know more?**",
+      "blockClass": "question"
+    }
+  },
+
+  "rich-text#link": {
+    "props": {
+      "text": "\n**Reach us at**\nwww.vtex.com.br",
+      "blockClass": "link"
+    }
+  }
+}
